@@ -1,0 +1,17 @@
+giurisprudenza 
+http://www03.unibg.it/orari/orario_giornaliero.php?db=EC&idfacolta=4&data=oggi
+
+ingegneria 
+http://www03.unibg.it/orari/orario_giornaliero.php?db=IN&idfacolta=1&data=oggi
+
+lettere, filosofia, comunicazione
+http://www03.unibg.it/orari/orario_giornaliero.php?db=UM&idfacolta=10&data=oggi
+
+lingue, letterature, culture straniere
+http://www03.unibg.it/orari/orario_giornaliero3.php?db=LL&idfacolta=1&idfacoltb=3&idfacoltc=8&data=oggi
+
+scienze aziendali, economiche e metodi quantitativi
+http://www03.unibg.it/orari/orario_giornaliero.php?db=EC&idfacolta=1&data=oggi
+
+scienze umane e sociali
+http://www03.unibg.it/orari/orario_giornaliero.php?db=UM&idfacolta=2&data=oggi

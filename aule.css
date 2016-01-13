@@ -1,0 +1,107 @@
+@CHARSET "ISO-8859-1";
+
+.ui-content
+{
+	padding: 0px 0px;
+	padding-bottom: 10px;
+}
+
+.aule-text-center
+{
+	text-align : center;
+}
+
+.aule-text-main
+{
+	padding-left: 20pt;
+	padding-right: 20pt;
+}
+
+[data-role=page]
+{
+	position:relative !important;
+	text-shadow:0 0 0;
+}
+
+#div-footer.ui-bar-inherit.ui-footer,#div-header.ui-bar-inherit.ui-header
+{
+	background:RGB(0,0,30);
+	color:white;
+}
+
+#GIU,#ING,#LETT,#LING,#SCAE,#SCUS
+{
+	border-radius: 10px;
+	white-space: normal;
+	text-shadow:0 0 0;
+}
+
+#GIU,.GIU
+{
+	background: RGB(132,124,232);
+}
+
+#ING,.ING
+{
+	background: RGB(34,220,86);
+}
+
+#LETT,.LETT
+{
+	background: RGB(254,185,76);
+}
+
+#LING,.LING
+{
+	background: RGB(76,164,254);
+}
+
+#SCAE,.SCAE
+
+{
+	background: RGB(255,75,109);
+}
+
+#SCUS,.SCUS
+{
+	background: RGB(107,135,156);
+}
+
+#day
+{
+	margin-bottom: 10px;
+}
+
+.div-free-hours
+{
+	border: 3px solid #585858 ;
+	padding: 0px;
+}
+
+.div-free-hours p
+{
+	margin: 8px;
+}
+
+.div-free-hours h3
+{
+	margin: 10px;
+}
+
+#qui
+{
+    color: #000000; 
+    text-decoration: underline; 
+}
+
+.nav-search .ui-btn-up-a 
+{
+    background-image:none;
+    background-color:#333333;
+}
+
+.nav-search .ui-btn-inner 
+{
+    border-top: 1px solid #888;
+    border-color: rgba(255, 255, 255, .1);
+}
