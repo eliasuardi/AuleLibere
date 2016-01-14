@@ -123,6 +123,8 @@ class AuleRequest
         { $this->error = $php_errormsg; 
           return( FALSE);
         }
+        
+        $this->cache_age = $this->cache_age( $this->cache_path);
       }
       $this->msg = "HTTP [$this->wait]";
     }

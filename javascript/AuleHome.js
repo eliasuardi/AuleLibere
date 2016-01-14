@@ -1,6 +1,15 @@
 
 $(document).ready(function()
-{	
+{
+    if(!$.cookie("aulelibere_access"))
+    {  
+        $.ajax({
+            url : "ajax/register_access.php"
+        });
+        
+        $.cookie("aulelibere_access", true, {expires: 30});
+    }
+    
 	var device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
 	
 	if(device)
@@ -13,6 +22,7 @@ $(document).ready(function()
             {
                 jQuery.data(document.body, "config", json);
 
+                $("#div-header").css("visibility", "visible");
                 if(jQuery.cookie("facolta"))
                 {
                     var cookie_facolta = $.cookie("facolta");
@@ -28,19 +38,11 @@ $(document).ready(function()
                 alert(status+' : '+errorThrown);
             }
 		});
-        
-        if(!jQuery.cookie("access"))
-        {  
-            $.ajax({
-                url : "ajax/register_access.php"
-            });
-            $.cookie("access", true, {expires: 365});
-        }
     }
-	else
-	{
-		window.location.replace("PC");
-	}
+    else
+    {
+        window.location.href = "PC/index.php";
+    }
 });
 
 
@@ -103,7 +105,7 @@ function render_aule(facolta, giorno)
 			});
             
             $("#save").click(function(){
-                if(jQuery.cookie("facolta"))
+                if($.cookie("facolta"))
                     $.removeCookie("facolta");
                 
                 $.cookie("facolta", facolta, {expires: 365*10});

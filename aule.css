@@ -1,5 +1,10 @@
 @CHARSET "ISO-8859-1";
 
+#div-header
+{
+    visibility: hidden;
+}
+
 .ui-content
 {
 	padding: 0px 0px;
@@ -23,7 +28,7 @@
 	text-shadow:0 0 0;
 }
 
-#div-footer.ui-bar-inherit.ui-footer,#div-header.ui-bar-inherit.ui-header
+.ui-bar-inherit.ui-footer,#div-header.ui-bar-inherit.ui-header
 {
 	background:RGB(0,0,30);
 	color:white;
