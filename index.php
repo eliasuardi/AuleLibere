@@ -20,27 +20,15 @@
 			<div id="div-header" data-theme="b" data-role="header" data-position="fixed" class="aule-text-center">
 				<h1><?php echo $config["application"]; ?></h1>
                 <a href="#menu-panel" id="icon-menu" data-icon="bars" data-iconpos="notext">Menu</a>
-                <!--<a href="#info-panel" id="icon-info" data-icon="info" data-iconpos="notext">Info</a>-->
 			</div>
 			
 			<div id="div-main" data-role="main" class="ui-content aule-text-main aule-text-center">
 			</div>
-            
-            <div data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" id="menu-panel" data-theme="b">
-                <ul data-role="listview" data-theme="b" data-divider-theme="b" style="margin-top:-16px;" class="nav-search">
-                    <li>
-                        <a href="#" id="save">Salva Facolta&grave;</a>
-                    </li>
+			
+            <div id="menu-panel" data-role="panel" data-position="left" data-position-fixed="false" data-display="reveal" data-theme="b">
+                <ul id="left-panel-ul" data-role="listview" data-theme="b" data-divider-theme="d" style="margin-top:-16px;" class="nav-search">
                 </ul>
             </div>
-            
-            <!--<div data-role="panel" data-position="right" data-position-fixed="false" data-display="reveal" id="info-panel" data-theme="b">
-                <div id="img-container" style="display: inline-block;background: white;padding: 0;">
-                    <img src="90degrees.gif">
-                </div>
-                <p>INFO</p>
-            </div>-->
-
 		</div>
 	</body>
 </html>

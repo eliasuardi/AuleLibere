@@ -34,40 +34,44 @@
 	color:white;
 }
 
-#GIU,#ING,#LETT,#LING,#SCAE,#SCUS
+#CAN,#MOR,#DAL,#ROS,#SAL,#PIG,#SAG,#GIU,#ING,#LETT,#LING,#SCAE,#SCUS
 {
 	border-radius: 10px;
 	white-space: normal;
 	text-shadow:0 0 0;
 }
 
-#GIU,.GIU
+#CAN,.CAN,#GIU,.GIU
 {
 	background: RGB(132,124,232);
 }
 
-#ING,.ING
+#DAL,.DAL,#ING,.ING
 {
 	background: RGB(34,220,86);
 }
 
-#LETT,.LETT
+#ROS,.ROS,#LETT,.LETT
 {
 	background: RGB(254,185,76);
 }
 
-#LING,.LING
+#SAL,.SAL
+{
+	background: RGB(254,230,76);
+}
+
+#PIG,.PIG,#LING,.LING
 {
 	background: RGB(76,164,254);
 }
 
-#SCAE,.SCAE
-
+#MOR,.MOR,#SCAE,.SCAE
 {
 	background: RGB(255,75,109);
 }
 
-#SCUS,.SCUS
+#SAG,.SAG,#SCUS,.SCUS
 {
 	background: RGB(107,135,156);
 }

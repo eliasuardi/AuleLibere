@@ -19,40 +19,72 @@ $config["application"] = "AULELIBERE UNIBG";
 $config["version"] = "1.1";
 $config["footer"] = 'Contatto</br>e.suardi5 @ studenti.unibg.it';
 
-// info facolt�
+// info sedi
+$config["sede"] = array("CAN", "MOR", "DAL", "ROS", "SAL", "PIG", "SAG");
+
+$config["esclusione"] = array("aula 15 can", "aula 16 can", "LAB 19 - can", "LAB. 7 - can", "LAB. 9 - can", "Sala Galeotti", "Lab. P. Rosate", "Sala Consiglio P. Rosate", "Sotto Tetto P. Rosate", "Lab. 5 Salv.", "AULA MAGNA  S. Agostino");
+
+$config["CAN"]["title"] = "Via dei Caniana";
+$config["CAN"]["url_params"]["db"] = "EC";
+$config["CAN"]["url_params"]["codsede"] = "CN";
+
+$config["MOR"]["title"] = "Via Moroni";
+$config["MOR"]["url_params"]["db"] = "EC";
+$config["MOR"]["url_params"]["codsede"] = "MR";
+
+$config["DAL"]["title"] = "Dalmine";
+$config["DAL"]["url_params"]["db"] = "IN";
+$config["DAL"]["url_params"]["codsede"] = "DA";
+
+$config["ROS"]["title"] = "Piazza Rosate";
+$config["ROS"]["url_params"]["db"] = "LL";
+$config["ROS"]["url_params"]["codsede"] = "PR";
+
+$config["SAL"]["title"] = "Via Salvecchio";
+$config["SAL"]["url_params"]["db"] = "LL";
+$config["SAL"]["url_params"]["codsede"] = "SV";
+
+$config["PIG"]["title"] = "Via Pignolo";
+$config["PIG"]["url_params"]["db"] = "UM";
+$config["PIG"]["url_params"]["codsede"] = "P";
+
+$config["SAG"]["title"] = "Piazzale S.Agostino";
+$config["SAG"]["url_params"]["db"] = "UM";
+$config["SAG"]["url_params"]["codsede"] = "SA";
+
 $config["facolta"] = array("GIU", "ING", "LETT", "LING", "SCAE", "SCUS");
 
 $config["GIU"]["title"] = "GIURISPRUDENZA";
-$config["GIU"]["file_name"] = "orario_giornaliero.php";
-$config["GIU"]["db"] = "EC";
-$config["GIU"]["idfacolt"]["a"] = "4";
+$config["GIU"]["url_params"]["file_name"] = "orario_giornaliero.php";
+$config["GIU"]["url_params"]["db"] = "EC";
+$config["GIU"]["url_params"]["idfacolt"]["a"] = "4";
 
 $config["ING"]["title"] = "INGEGNERIA";
-$config["ING"]["file_name"] = "orario_giornaliero.php";
-$config["ING"]["db"] = "IN";
-$config["ING"]["idfacolt"]["a"] = "1";
+$config["ING"]["url_params"]["file_name"] = "orario_giornaliero.php";
+$config["ING"]["url_params"]["db"] = "IN";
+$config["ING"]["url_params"]["idfacolt"]["a"] = "1";
 
 $config["LETT"]["title"] = "LETTERE FILOSOFIA COMUNICAZIONE";
-$config["LETT"]["file_name"] = "orario_giornaliero.php";
-$config["LETT"]["db"] = "UM";
-$config["LETT"]["idfacolt"]["a"] = "10";
+$config["LETT"]["url_params"]["file_name"] = "orario_giornaliero.php";
+$config["LETT"]["url_params"]["db"] = "UM";
+$config["LETT"]["url_params"]["idfacolt"]["a"] = "10";
 
 $config["LING"]["title"] = "LINGUE LETTERATURE CULTURE STRANIERE";
-$config["LING"]["file_name"] = "orario_giornaliero3.php";
-$config["LING"]["db"] = "LL";
-$config["LING"]["idfacolt"]["a"] = "1";
-$config["LING"]["idfacolt"]["b"] = "3";
-$config["LING"]["idfacolt"]["c"] = "8";
+$config["LING"]["url_params"]["file_name"] = "orario_giornaliero3.php";
+$config["LING"]["url_params"]["db"] = "LL";
+$config["LING"]["url_params"]["idfacolt"]["a"] = "1";
+$config["LING"]["url_params"]["idfacolt"]["b"] = "3";
+$config["LING"]["url_params"]["idfacolt"]["c"] = "8";
 
 $config["SCAE"]["title"] = "SCIENZE AZIENDALI ECONOMICHE METODI QUANTITATIVI";
-$config["SCAE"]["file_name"] = "orario_giornaliero.php";
-$config["SCAE"]["db"] = "EC";
-$config["SCAE"]["idfacolt"]["a"] = "1";
+$config["SCAE"]["url_params"]["file_name"] = "orario_giornaliero.php";
+$config["SCAE"]["url_params"]["db"] = "EC";
+$config["SCAE"]["url_params"]["idfacolt"]["a"] = "1";
 
 $config["SCUS"]["title"] = "SCIENZE UMANE E SOCIALI";
-$config["SCUS"]["file_name"] = "orario_giornaliero.php";
-$config["SCUS"]["db"] = "UM";
-$config["SCUS"]["idfacolt"]["a"] = "2";
+$config["SCUS"]["url_params"]["file_name"] = "orario_giornaliero.php";
+$config["SCUS"]["url_params"]["db"] = "UM";
+$config["SCUS"]["url_params"]["idfacolt"]["a"] = "2";
 
 $config["wait"] = 6;
 $config["cache_on"] = true;

@@ -2,10 +2,7 @@
 
 // Copyright 2006-2015 - NINETY-DEGREES
 
-
 require_once "AuleRequest.php";
-
-
 
 ///////////////////////////////////////////////////////////////////
 // HTTP GET requests to UNIBG
@@ -25,15 +22,27 @@ extends AuleRequest
 
 
     //////// get word request
-    function get_classroom_free_hours( $file_name, $db, $idfacolt, $date)
+    function get_classroom_free_hours( $url_param, $date)
     {
-        $url = $this->service_endpoint . $file_name . "?db=" . $db;
-        foreach($idfacolt as $key => $val)
+        if(!array_key_exists("idfacolt", $url_param))
+            $url = $this->service_endpoint . "orario_giornaliero.php?";
+        else
+            $url = $this->service_endpoint;
+        
+        foreach($url_param as $key => $val)
         {
-        	$url = $url . "&idfacolt" . $key . "=" . $val;
+            if($key == "file_name")
+                $url .= $val . "?";
+            else if($key == "idfacolt")
+            {
+                foreach($val as $fkey => $fval)
+                    $url .= $fkey . "=" . $fval . "&";
+            }
+            else 
+                $url .= $key . "=" . $val . "&";
         }
-        $url = $url . "&data=" . urlencode( $date);
-
+        
+        $url .= "data=" . urlencode( $date);
         $this->url_data = $url;
         
         if ($this->get_web_page( $url))
@@ -44,7 +53,7 @@ extends AuleRequest
             	if(isset($lesson_array["LESSON_ARRAY"]))
             	{
             		$classroom_array = $this->parse_lesson_data($lesson_array["LESSON_ARRAY"]);
-              		return( $this->free_periods($classroom_array));
+            		return( $this->free_periods($classroom_array));
                 }
             }
         }
@@ -59,7 +68,7 @@ extends AuleRequest
     	
     	foreach($classroom_array as $key_class => $value_class)
     	{
-    		if(strpos($key_class, 'utenza'))
+    		if(strpos(strtolower($key_class), 'utenza'))
     		{
     			$free_periods[$key_class][] = str_replace('-', ' - ', $value_class);
     			continue;
@@ -194,28 +203,25 @@ extends AuleRequest
         {        
         	for($i=0; $i<$span->length; $i++)
         	{
-        		/*
-        		    /html/body/table/tr/td [4] = 
-                            /html/body/table/tr/td/#text [0] = Aula 2 Ed-A 
-                            /html/body/table/tr/td/br [0] = 
-                            /html/body/table/tr/td/#text [0] = 08.30-11.30 
-                            /html/body/table/tr/td/br [0] = 
-                         */
+        		
         		$children = $span->item($i)->childNodes;
-        		if($children->length == 4)
+        		if(!in_array(trim($children->item(0)->textContent), $this->unwanted) && $children->length == 4)
         		{
-                                $lesson_description = $span->item($i-3);
+                    $lesson_description = $span->item($i-3);
         			$lessons_array["classroom"][] = strtolower(preg_replace('/\s\s+/', ' ', trim($this->generate_classroom_key($children->item(0)->textContent))));
-        			$lessons_array["lesson_period"][] = strtolower(preg_replace('/\s\s+/', ' ', trim($children->item(2)->textContent)));
-                                $lessons_array["lesson_description"][] = trim($lesson_description->textContent);
-                        }
+                    $lessons_array["lesson_period"][] = strtolower(preg_replace('/\s\s+/', ' ', trim($children->item(2)->textContent)));
+                    $lessons_array["lesson_description"][] = trim($lesson_description->textContent);
+                }
         		else if($children->length == 1 && strpos(strtolower($children->item(0)->textContent), 'utenza'))
         		{
         			$classroom = $span->item($i+3)->childNodes;
-        			$lessons_array["classroom"][] = strtolower(preg_replace('/\s\s+/', ' ', trim(preg_replace('/inform.|infor./', '( '.trim($children->item(0)->textContent).')', $this->generate_classroom_key($classroom->item(0)->textContent)))));
-        			$lessons_array["lesson_period"][] = strtolower(preg_replace('/\s\s+/', ' ', trim($classroom->item(2)->textContent)));
-                                $lessons_array["lesson_description"][] = trim($span->item($i)->textContent);
-                        }
+        			if(strpos($this->generate_classroom_key($classroom->item(0)->textContent), 'infor'))
+                        $lessons_array["classroom"][] = strtolower(preg_replace('/\s\s+/', ' ', trim(preg_replace('/inform.|infor./', '( '.trim($children->item(0)->textContent).')', $this->generate_classroom_key($classroom->item(0)->textContent)))));
+        			else 
+        			    $lessons_array["classroom"][] = trim($this->generate_classroom_key($classroom->item(0)->textContent)) . ' ( ' . trim($span->item($i)->textContent) . ' )';
+                    $lessons_array["lesson_period"][] = strtolower(preg_replace('/\s\s+/', ' ', trim($classroom->item(2)->textContent)));
+                    $lessons_array["lesson_description"][] = trim($span->item($i)->textContent);
+                }
         	}
         }
         
@@ -238,11 +244,11 @@ extends AuleRequest
     	for($i=0;$i<sizeof($lesson_array["classroom"]);$i++)
     	{
     		$key = $lesson_array["classroom"][$i];
-    		if(!array_key_exists($key, $classroom_array) && !strpos($key, 'utenza'))
+    		if(!array_key_exists($key, $classroom_array) && !strpos(strtolower($key), 'utenza'))
     		{
     			$classroom_array[$key] = $this->create_time_table();
     		}
-    		else if(strpos($key, 'utenza'))
+    		else if(strpos(strtolower($key), 'utenza'))
     		{
     			$classroom_array[$key] = $lesson_array["lesson_period"][$i];
     			continue;
