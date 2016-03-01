@@ -13,6 +13,10 @@
 	// get day user wants to visualize
 	$result["free_hours"] = $request->get_classroom_free_hours($config[$elemento]["url_params"], $data);
 	$result["source"] = $request->url;
-	$result["next_update"] = $config["refresh_interval"] - $request->cache_age;
-		
+	
+	if(($config["refresh_interval"] - $request->cache_age) >= 0)
+	   $result["next_update"] = $config["refresh_interval"] - $request->cache_age;
+	else 
+	    $result["next_update"] = $config["refresh_interval"];
+	
 	echo ajax_json_response($result);

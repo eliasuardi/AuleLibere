@@ -22,7 +22,7 @@ $config["footer"] = 'Contatto</br>e.suardi5 @ studenti.unibg.it';
 // info sedi
 $config["sede"] = array("CAN", "MOR", "DAL", "ROS", "SAL", "PIG", "SAG");
 
-$config["esclusione"] = array("aula 15 can", "aula 16 can", "LAB 19 - can", "LAB. 7 - can", "LAB. 9 - can", "Sala Galeotti", "Lab. P. Rosate", "Sala Consiglio P. Rosate", "Sotto Tetto P. Rosate", "Lab. 5 Salv.", "AULA MAGNA  S. Agostino");
+$config["esclusione"] = array("aula 15 can", "aula 16 can", "LAB 19 - can", "LAB. 7 - can", "LAB. 9 - can", "Sala Galeotti", "Lab. P. Rosate", "Sala Consiglio P. Rosate", "Sotto Tetto P. Rosate", "Lab. 5 Salv.", "AULA MAGNA  S. Agostino", "avvisi", "avviso");
 
 $config["CAN"]["title"] = "Via dei Caniana";
 $config["CAN"]["url_params"]["db"] = "EC";

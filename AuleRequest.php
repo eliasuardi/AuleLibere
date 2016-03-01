@@ -120,7 +120,6 @@ class AuleRequest
       // &&  !@mkdir( dirname( $this->cache_path), 0777, true))
       if ($this->cache_on == TRUE)
       {
-      	$this->cache_age = $this->cache_age( $this->cache_path);
         if (!file_exists( dirname( $this->cache_path)) 
         &&  !$this->nd_mkdir( dirname( $this->cache_path), $this->error))
         { return( FALSE);
@@ -129,6 +128,7 @@ class AuleRequest
         { $this->error = $php_errormsg; 
           return( FALSE);
         }
+        $this->cache_age = $this->cache_age( $this->cache_path);
       }
       $this->msg = "HTTP [$this->wait]";
     }

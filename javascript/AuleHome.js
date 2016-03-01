@@ -54,7 +54,7 @@ $(document).ready(function()
 function render_home()
 {
 	$("#left-panel-ul").empty();
-	$("#left-panel-ul").append('<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-d ui-first-child">Visualizza : </li>');
+	$("#left-panel-ul").append('<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-b ui-first-child">Visualizza : </li>');
 	$("#left-panel-ul").append('<li><a href="#" id="Sede">Per Sede</a></li>');
 	$("#left-panel-ul").append('<li><a href="#" id="Facolta">Per Facolta&grave;</a></li>');
 	$("#div-main").html(get_home_content());
@@ -94,6 +94,10 @@ function render_aule(elemento, giorno)
 						
 			$("#left-panel-ul").empty();
 			$("#left-panel-ul").append('<li><a href="#" id="save">Salva '+tipo_visualizzazione+'</a></li>');		
+			//$("#left-panel-ul").append('<li data-role="list-divider" role="heading" class="ui-li-divider ui-bar-b ui-first-child">Visualizza : </li>');
+			//$("#left-panel-ul").append('<li><a href="#" id="">Per Aula</a></li>');
+			//$("#left-panel-ul").append('<li><a href="#" id="">Per Periodo</a></li>');
+			//$("#left-panel-ul").append('<li><a href="#" id="">Per Rilevanza</a></li>');
 			$("#icon-menu").show();
 			$("#div-main").html(get_elemento_content_by_class(free_hours, elemento, next_update));
 			$("#div-main").addClass(elemento);
